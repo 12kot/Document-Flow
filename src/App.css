@@ -4,13 +4,13 @@
 }
 
 .App {
-  margin: 0 7vw;
+  margin: 0 8vw;
   height: 100vh;
   font-family: CodecPro;
 }
 
 .content {
-  min-height: 100vh;
+  min-height: calc(100vh - 25px);
 }
 
 a {

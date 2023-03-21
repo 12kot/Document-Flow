@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./MainPage.module.css";
 import mainBanner from "./../../Common/Images/mainBanner.jpg";
+import Button from "../UI/Buttons/Buttons";
 
 const MainPage = (props) => {
   return (
@@ -22,16 +22,8 @@ const MainPage = (props) => {
               или мобильном устройстве.
             </p>
           </div>
-          <div className={`${styles.logButton}`}>
-            <NavLink to="/login" className={`${styles.floating_button}`}>
-              Начать пользоваться
-            </NavLink>
-          </div>
-          <div className={`${styles.logButton}`}>
-            <NavLink to="/disk" className={`${styles.floating_button}`}>
-              Открыть диск
-            </NavLink>
-          </div>
+          <Button size={styles.button} path="/login" text="Начать пользоваться"/>
+          <Button size={styles.button} path="/disk" text="Перейти в диск"/>
         </div>
         <div className={`${styles.grid_img}`}>
           <img src={mainBanner} alt="banner" />
