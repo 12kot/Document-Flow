@@ -1,23 +1,39 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import Button from "../../UI/Buttons/Buttons";
 import Input from "../../UI/Inputs/Input";
 import styles from "../Auth.module.css";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+  if (!props.haveError && props.isLogin)
+    return <Navigate to="/disk" />
+  
   return (
     <div className={`${styles.page}`}>
       <div className={`${styles.loginPage}`}>
         <h3>LoginPage</h3>
         <div className={styles.inputs}>
-          <Input margin={styles.inp} text="Email" />
-          <Input margin={styles.inp} text="Password" />
+          <Input
+            margin={styles.inp}
+            currentText={props.emailText}
+            changeText={props.changeEmailText}
+            text="Nickname"
+            type="text"
+          />
+          <Input
+            margin={styles.inp}
+            currentText={props.passwordText}
+            changeText={props.changePasswordText}
+            text="Password"
+            type="password"
+          />
 
           <div>
-            <Button size={styles.button} path="disk" text="Log In" />
+            <Button size={styles.button} action={props.loginUser} path="/login" text="Log In" />
           </div>
           <div className={`${styles.register}`}>
-            <span>Ещё не зарегестрированы?</span><br />
+            <span>Ещё не зарегестрированы?</span>
+            <br />
             <NavLink to="/register">Sign In</NavLink>
           </div>
         </div>

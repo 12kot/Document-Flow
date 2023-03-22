@@ -3,6 +3,10 @@ import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = (props) => {
+  let logOutUser = () => {
+    props.logOutUser();
+  }
+
   return (
     <header className={styles.header}>
       <span className={`${styles.item} ${styles.logo}`}>
@@ -10,7 +14,7 @@ const Header = (props) => {
       </span>
       <div>
         <span className={styles.item}>
-          <NavLink to="/login">Войти</NavLink>
+          <NavLink onClick={logOutUser} to="/login">{props.isLogin ? `${props.email} (выйти)` : "Войти"}</NavLink>
         </span>
       </div>
     </header>

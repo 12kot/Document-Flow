@@ -2,20 +2,20 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainPage from "./Components/MainPage/MainPage";
 import React from "react";
-import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import LoginPage from "./Components/AuthPages/LoginPage/LoginPage";
-import RegisterPage from "./Components/AuthPages/RegisterPage/RegisterPage";
+import RegisterPageContainer from "./Components/AuthPages/RegisterPage/RegisterPageContainer";
+import LoginPageContainer from "./Components/AuthPages/LoginPage/LoginPageContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 const App = (props) => {
   return (
     <div className="App">
       <div className="content">
-        <Header />
+        <HeaderContainer />
         <Routes>
           <Route className="mainPage" path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPageContainer />} />
+          <Route path="/register" element={<RegisterPageContainer />} />
         </Routes>
       </div>
       <div className="footer">

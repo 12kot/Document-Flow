@@ -1,21 +1,42 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import Button from "../../UI/Buttons/Buttons";
 import Input from "../../UI/Inputs/Input";
 import styles from "../Auth.module.css";
 
-const RegisterPage = () => {
+const RegisterPage = (props) => {
+  if (!props.haveError && props.isLogin)
+    return <Navigate to="/disk" />
+  
   return (
     <div className={`${styles.page}`}>
       <div className={`${styles.loginPage}`}>
         <h3>Registration</h3>
         <div className={styles.inputs}>
-          <Input margin={styles.inp} text="Email" />
-          <Input margin={styles.inp} text="Password" />
-          <Input margin={styles.inp} text="Repeat Password" />
+          <Input
+            margin={styles.inp}
+            currentText={props.emailText}
+            changeText={props.changeEmailText}
+            text="Nickname"
+            type="text"
+          />
+          <Input
+            margin={styles.inp}
+            currentText={props.passwordText}
+            changeText={props.changePasswordText}
+            text="Password"
+            type="password"
+          />
+          <Input
+            margin={styles.inp}
+            currentText={props.repeatPasswordText}
+            changeText={props.changeRepeatPasswordText}
+            text="Repeat password"
+            type="password"
+          />
 
           <div>
-            <Button size={styles.button} path="disk" text="Register" />
+            <Button size={styles.button} action={props.registerUser} path="/register" text="Register" />
           </div>
           <div className={`${styles.register}`}>
             <span>Уже зарегестрированы?</span>
