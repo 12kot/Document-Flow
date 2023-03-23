@@ -5,29 +5,27 @@ import Button from "../UI/Buttons/Buttons";
 
 const MainPage = (props) => {
   return (
-    <div className={`${styles.main}`}>
-      <div className={`${styles.grid}`}>
-        <div>
-          <div className={`${styles.slogan}`}>
-            <h1>
-              Никитоша диск
-              <br />
-              для самого важного
-            </h1>
-          </div>
-          <div className={`${styles.slogan1}`}>
-            <p>
-              Вы можете хранить и передавать коллегам файлы и папки, а также
-              работать над ними вместе с другими пользователями на компьютере
-              или мобильном устройстве.
-            </p>
-          </div>
-          <Button size={styles.button} path="/login" text="Начать пользоваться"/>
-          <Button size={styles.button} path="/disk" text="Перейти в диск"/>
+    <div className={`${styles.flex}`}>
+      <div className={styles.description}>
+        <div className={`${styles.slogan}`}>
+          <h1>
+            Никитоша диск
+            <br />
+            для самого важного
+          </h1>
         </div>
-        <div className={`${styles.grid_img}`}>
-          <img src={mainBanner} alt="banner" />
+        <div className={`${styles.slogan1}`}>
+          <p>
+            Вы можете хранить и передавать коллегам файлы и папки, а также
+            работать над ними вместе с другими пользователями на компьютере или
+            мобильном устройстве.
+          </p>
         </div>
+        <Button size={styles.button} path="/login" text="Начать пользоваться" />
+        <Button size={styles.button} path="/disk" text="Перейти в диск" />
+      </div>
+      <div className={`${styles.flex_img}`}>
+        <img src={mainBanner} alt="banner" />
       </div>
     </div>
   );
