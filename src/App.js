@@ -6,6 +6,7 @@ import Footer from "./Components/Footer/Footer";
 import RegisterPageContainer from "./Components/AuthPages/RegisterPage/RegisterPageContainer";
 import LoginPageContainer from "./Components/AuthPages/LoginPage/LoginPageContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import DiskPageContainer from "./Components/DiskPage/DiskPageContainer";
 
 const App = (props) => {
   return (
@@ -16,6 +17,7 @@ const App = (props) => {
           <Route className="mainPage" path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPageContainer />} />
           <Route path="/register" element={<RegisterPageContainer />} />
+          <Route path="/disk" element={<DiskPageContainer />} />
         </Routes>
       </div>
       <div className="footer">

@@ -15,6 +15,7 @@ const LoginPage = (props) => {
         <div className={styles.inputs}>
           <Input
             margin={styles.inp}
+            color={styles.color}
             currentText={props.emailText}
             changeText={props.changeEmailText}
             text="Nickname"
@@ -22,6 +23,7 @@ const LoginPage = (props) => {
           />
           <Input
             margin={styles.inp}
+            color={styles.color}
             currentText={props.passwordText}
             changeText={props.changePasswordText}
             text="Password"

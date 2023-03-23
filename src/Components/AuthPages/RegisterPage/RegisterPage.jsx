@@ -15,6 +15,7 @@ const RegisterPage = (props) => {
         <div className={styles.inputs}>
           <Input
             margin={styles.inp}
+            color={styles.color}
             currentText={props.emailText}
             changeText={props.changeEmailText}
             text="Nickname"
@@ -22,6 +23,7 @@ const RegisterPage = (props) => {
           />
           <Input
             margin={styles.inp}
+            color={styles.color}
             currentText={props.passwordText}
             changeText={props.changePasswordText}
             text="Password"
@@ -29,6 +31,7 @@ const RegisterPage = (props) => {
           />
           <Input
             margin={styles.inp}
+            color={styles.color}
             currentText={props.repeatPasswordText}
             changeText={props.changeRepeatPasswordText}
             text="Repeat password"

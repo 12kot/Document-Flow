@@ -4,6 +4,7 @@ let CHANGE_REPEAT_PASSWORD_TEXT = "CHANGE_REPEAT_PASSWORD_TEXT";
 let REGISTER_USER = "REGISTER_USER";
 let LOGIN_USER = "LOGIN_USER";
 let LOG_OUT_USER = "LOG_OUT_USER";
+
 let emptyUser = {
   email: null,
   isLogin: false,

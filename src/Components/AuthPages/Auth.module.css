@@ -8,7 +8,10 @@
 .loginPage {
   background-color: black;
   color: white;
-  border-radius: 7%;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .loginPage h3 {
@@ -23,6 +26,10 @@
   margin: 3% 0;
 }
 
+.color {
+  color: #fff;
+}
+
 .inputs {
   height: calc(60%);
   display: flex;
@@ -33,7 +40,7 @@
 
 .button {
   margin: 5% 0%;
-  width: calc(15vw + 23px);
+  width: calc(8vw + 84px);
 }
 
 .register {

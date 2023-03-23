@@ -16,7 +16,7 @@ const Input = (props) => {
             value={props.currentText}
             required=""
             placeholder={props.text}
-            className={styles.form__field}
+            className={`${styles.form__field} ${props.color}`}
             type={props.type}
             autoComplete="on"
         />
