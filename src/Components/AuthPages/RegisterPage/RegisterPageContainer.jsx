@@ -18,9 +18,10 @@ let mapStateToProps = (store) => {
   return {
     emailText: store.auth.changeEmailText,
     passwordText: store.auth.changePasswordText,
-    repeatPasswordText: store.auth.repeatPasswordText,
+    repeatPasswordText: store.auth.changeRepeatPasswordText,
     haveError: store.auth.haveError,
-    isLogin: store.auth.currentUser.isLogin,
+
+    isLogin: store.disk.currentUser.isLogin,
   };
 };
 
@@ -28,5 +29,5 @@ export default connect(mapStateToProps, {
   changeEmailText,
   changePasswordText,
   changeRepeatPasswordText,
-  registerUser,
+  registerUser
 })(registerPage);

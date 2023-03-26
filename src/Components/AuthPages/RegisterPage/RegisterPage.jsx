@@ -39,7 +39,7 @@ const RegisterPage = (props) => {
           />
 
           <div>
-            <Button size={styles.button} action={props.registerUser} path="/register" text="Register" />
+            <Button size={styles.button} action={props.registerUser} path="/disk" text="Register" />
           </div>
           <div className={`${styles.register}`}>
             <span>Уже зарегестрированы?</span>

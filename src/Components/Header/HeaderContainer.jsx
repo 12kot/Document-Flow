@@ -11,8 +11,8 @@ class header extends React.Component {
 
 let mapStateToProps = (store) => {
     return {
-        isLogin: store.auth.currentUser.isLogin,
-        email: store.auth.currentUser.email,
+        email: store.disk.currentUser.email,
+        isLogin: store.disk.currentUser.isLogin,
     }
 }
 

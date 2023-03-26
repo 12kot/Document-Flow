@@ -12,7 +12,7 @@ const DiskPage = (props) => {
   
   let getFiles = () => {
     if(props.userFiles.length === 0) return "Файлы отсутствуют"
-    return props.userFiles.map((file) => { return (<File />) })
+    return props.userFiles.map((file) => { return (<File file={file} />) })
   } 
 
   return (
@@ -37,7 +37,7 @@ const DiskPage = (props) => {
       </div>
 
       <div className={styles.addFile}>
-        <UploadForm />
+        <UploadForm addFile={ props.addFile } />
       </div>
       <div>
         <h2>Ваши файлы</h2>

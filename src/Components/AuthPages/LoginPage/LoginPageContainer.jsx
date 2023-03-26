@@ -5,9 +5,14 @@ import {
   changePasswordText,
   loginUser,
 } from "../../../Redux/authReducer";
+import { setCurrentUser } from "../../../Redux/diskReducer";
 import LoginPage from "./LoginPage";
 
 class loginPage extends React.Component {
+  componentDidMount = () => {
+    this.props.setCurrentUser(this.props.currentUser);
+  };
+
   render = () => {
     return (
       <LoginPage
@@ -21,7 +26,10 @@ let mapStateToProps = (store) => {
   return {
     emailText: store.auth.changeEmailText,
     passwordText: store.auth.changePasswordText,
-    isLogin: store.auth.currentUser.isLogin,
+    haveError: store.auth.haveError,
+    currentUser: store.auth.currentUser,
+
+    isLogin: store.disk.currentUser.isLogin,
   };
 };
 
@@ -29,4 +37,5 @@ export default connect(mapStateToProps, {
   changeEmailText,
   changePasswordText,
   loginUser,
+  setCurrentUser,
 })(loginPage);

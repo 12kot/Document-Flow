@@ -5,9 +5,8 @@ const UploadForm = (props) => {
   let uploadFile = (input) => {
     if (!input) return;
 
-    debugger;
     let file = input.target.files[0];
-    alert(file);
+    props.addFile(file);
   };
 
   return (

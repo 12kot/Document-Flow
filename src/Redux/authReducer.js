@@ -12,11 +12,11 @@ let emptyUser = {
 };
 
 let initialState = {
-  currentUser: {
-    email: "null",
-    isLogin: true,
-    files: [1, 2],
-  },
+   currentUser: {
+     email: null,
+     isLogin: false,
+     files: [],
+   },
 
   users: [],
 
@@ -47,8 +47,7 @@ let authReducer = (state = initialState, action) => {
     case LOGIN_USER:
       return _loginUser(state.changeEmailText, state.changePasswordText, state);
     case LOG_OUT_USER:
-      state.currentUser = emptyUser;
-      return { ...state };
+      return _logOutUser(state);
     default:
       return state;
   }
@@ -84,7 +83,7 @@ let _registerNewUser = (email, password, repeatPassword, state) => {
   state.users.push({
     email,
     password,
-    documents: [],
+    files: [],
   });
 
   state.haveError = false;
@@ -103,11 +102,11 @@ let _loginUser = (email, password, state) => {
     for (let user of state.users) {
       if (user.email === email) {
         if (user.password === password) {
-          state.currentUser = {
-            email,
-            isLogin: true,
-            files: user.documents,
-          };
+           state.currentUser = {
+             email,
+             isLogin: true,
+             files: user.files,
+           };
 
           alert("Вы успешно авторизовались.");
 
@@ -126,6 +125,11 @@ let _loginUser = (email, password, state) => {
   state.haveError = true;
   return { ...state };
 };
+
+let _logOutUser = (state) => {
+  state.currentUser = emptyUser;
+  return { ...state };
+}
 
 export const changeEmailText = (changeEmailText) => {
   return { type: CHANGE_EMAIL_TEXT, changeEmailText };

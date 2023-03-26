@@ -34,7 +34,7 @@ const LoginPage = (props) => {
             <Button
               size={styles.button}
               action={props.loginUser}
-              path="/login"
+              path="/disk"
               text="Log In"
             />
           </div>
