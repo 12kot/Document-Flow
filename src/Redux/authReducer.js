@@ -8,14 +8,14 @@ let LOG_OUT_USER = "LOG_OUT_USER";
 let emptyUser = {
   email: null,
   isLogin: false,
-  documents: [],
+  files: [],
 };
 
 let initialState = {
   currentUser: {
-    email: null,
-    isLogin: false,
-    documents: [],
+    email: "null",
+    isLogin: true,
+    files: [1, 2],
   },
 
   users: [],
@@ -106,7 +106,7 @@ let _loginUser = (email, password, state) => {
           state.currentUser = {
             email,
             isLogin: true,
-            documents: user.documents,
+            files: user.documents,
           };
 
           alert("Вы успешно авторизовались.");

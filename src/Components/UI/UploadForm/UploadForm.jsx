@@ -1,10 +1,18 @@
 import React from "react";
-import styles from "./UploadForm.module.css"
+import styles from "./UploadForm.module.css";
 
 const UploadForm = (props) => {
+  let uploadFile = (input) => {
+    if (!input) return;
+
+    debugger;
+    let file = input.target.files[0];
+    alert(file);
+  };
+
   return (
     <div className={styles.container}>
-          <div className={styles.header}>
+      <div className={styles.header}>
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g
@@ -24,10 +32,9 @@ const UploadForm = (props) => {
         </svg>{" "}
         <p>Browse File to upload!</p>
       </div>
-      <input id="file" type="file" />
+      <input type="file" onChange={uploadFile} />
     </div>
   );
 };
-
 
 export default UploadForm;

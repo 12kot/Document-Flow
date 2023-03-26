@@ -3,16 +3,17 @@ import { connect } from "react-redux";
 import {
   changeSearchText,
   changeSortText,
-  setDocuments,
+  setUserFiles,
 } from "../../Redux/diskReducer";
-import DiskPage from "../DiskPage/DiskPage";
+import DiskPage from "../DiskPage/Disk/DiskPage";
 
 class diskPage extends React.Component {
   componentDidMount = () => {
-    this.props.setDocuments(this.props.currentUserDocuments);
+    this.props.setUserFiles(this.props.currentUserFiles);
   };
 
   render = () => {
+
     return <DiskPage {...this.props} />;
   };
 }
@@ -21,15 +22,17 @@ let mapStateToProps = (store) => {
   return {
     typeOfSort: store.disk.typeOfSort,
     searchText: store.disk.searchText,
-    documents: store.disk.documents,
+    userFiles: store.disk.userFiles,
+    
+    currentUserFiles: store.auth.currentUser.files,
     isLogin: store.auth.currentUser.isLogin,
     haveError: store.auth.haveError,
-    currentUserDocuments: store.auth.currentUser.documents,
+    
   };
 };
 
 export default connect(mapStateToProps, {
   changeSearchText,
   changeSortText,
-  setDocuments,
+  setUserFiles,
 })(diskPage);
