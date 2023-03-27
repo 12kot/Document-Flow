@@ -17,6 +17,7 @@ let diskReducer = (state = initialState, action) => {
       return { ...state };
     case CHANGE_SORT_TEXT:
       state.typeOfSort = action.typeOfSort;
+      return _sortState(state.typeOfSort, state);
       return { ...state };
     case ADD_FILE:
       return _addFile(state, action.file, action.path);
@@ -26,6 +27,34 @@ let diskReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+let _sortState = (typeSort, state) => {
+  switch (typeSort) {
+    case "name":
+      return _sortByName(state);
+    case "time":
+      return _sortByTime(state);
+    case "size":
+      return _sortBySize(state);
+    default:
+      return {...state}
+  }
+}
+
+let _sortByName = (state) => {
+  state.currentUser.files.sort((a, b) => a.file.name > b.file.name ? 1 : -1)
+  return { ...state };
+}
+
+let _sortByTime = (state) => {
+  state.currentUser.files.sort((a, b) => a.file.lastModified - b.file.lastModified)
+  return { ...state };
+}
+
+let _sortBySize = (state) => {
+  state.currentUser.files.sort((a, b) => a.file.size - b.file.size)
+  return { ...state };
+}
 
 let _addFile = (state, file, path) => {
   state.currentUser.files.push({ file, path });

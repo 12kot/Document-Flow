@@ -15,7 +15,7 @@ const SelectForm = (props) => {
         className={`${styles.form__field}`}
       >
         <option value="name">По названию</option>
-        <option value="time">По времени добавления</option>
+        <option value="time">По времени изменения</option>
         <option value="size">По размеру</option>
       </select>
     </div>
