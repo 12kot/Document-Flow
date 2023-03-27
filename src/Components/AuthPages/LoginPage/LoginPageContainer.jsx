@@ -23,6 +23,8 @@ class loginPage extends React.Component {
 }
 
 let mapStateToProps = (store) => {
+  //store.disk.currentUser = {...store.auth.currentUser};
+
   return {
     emailText: store.auth.changeEmailText,
     passwordText: store.auth.changePasswordText,

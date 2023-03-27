@@ -20,7 +20,7 @@ const Input = (props) => {
             type={props.type}
             autoComplete="on"
         />
-        <label className={styles.form__label} for={props.text}>
+        <label className={styles.form__label} htmlFor={props.text}>
             {props.text}
         </label>
     </div>);

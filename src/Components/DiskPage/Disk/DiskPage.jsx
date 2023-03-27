@@ -12,7 +12,7 @@ const DiskPage = (props) => {
   
   let getFiles = () => {
     if(props.userFiles.length === 0) return "Файлы отсутствуют"
-    return props.userFiles.map((file) => { return (<File file={file} />) })
+    return props.userFiles.map((file) => { return (<File file={file.file} path={file.path} />) })
   } 
 
   return (

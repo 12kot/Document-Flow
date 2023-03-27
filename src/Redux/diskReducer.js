@@ -19,16 +19,16 @@ let diskReducer = (state = initialState, action) => {
       state.typeOfSort = action.typeOfSort;
       return { ...state };
     case ADD_FILE:
-      return _addFile(state, action.file);
+      return _addFile(state, action.file, action.path);
     case SET_CURRENT_USER:
-      return _setCurrentUser(state, action.currentUser);
+      return _setCurrentUser(action.currentUser, state);
     default:
       return { ...state };
   }
 };
 
-let _addFile = (state, file) => {
-  state.currentUser.files.push(file);
+let _addFile = (state, file, path) => {
+  state.currentUser.files.push({ file, path });
 
   if (state.searchText === " ")
     state.searchText = "";
@@ -37,7 +37,7 @@ let _addFile = (state, file) => {
   return { ...state };
 }
 
-let _setCurrentUser = (state, user) => {
+let _setCurrentUser = (user, state) => {
   state.currentUser = user;
   return {...state}
 }
@@ -57,8 +57,8 @@ export const changeSortText = (typeOfSort) => {
   return { type: CHANGE_SORT_TEXT, typeOfSort };
 };
 
-export const addFile = (file) => {
-  return { type: ADD_FILE, file };
+export const addFile = (file, path) => {
+  return { type: ADD_FILE, file, path };
 };
 
 export default diskReducer;

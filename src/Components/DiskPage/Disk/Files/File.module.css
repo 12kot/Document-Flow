@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  margin: 1% 0;
 
   display: flex;
   flex-direction: row;
@@ -30,4 +31,12 @@
 .item {
   margin: 0.6% 2.5%;
   font-size: calc(1rem + 0.2vw);
+}
+
+.cont a {
+  color: rgb(117, 117, 117);
+}
+
+.cont a:hover {
+  color: black;
 }
