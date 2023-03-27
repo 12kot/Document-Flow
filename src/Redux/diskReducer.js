@@ -7,18 +7,17 @@ let initialState = {
   typeOfSort: "name",
   searchText: "",
 
-  currentUser: { email: null, isLogin: false, files: [] },
+  currentUser: { email: null, isLogin: false, files: [], },
 };
 
 let diskReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_SEARCH_TEXT:
       state.searchText = action.searchText;
-      return { ...state };
+      return _searchText(state.searchText, state);
     case CHANGE_SORT_TEXT:
       state.typeOfSort = action.typeOfSort;
       return _sortState(state.typeOfSort, state);
-      return { ...state };
     case ADD_FILE:
       return _addFile(state, action.file, action.path);
     case SET_CURRENT_USER:
@@ -27,6 +26,15 @@ let diskReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+let _searchText = (searchText, state) => {
+  for (let file of state.currentUser.files)
+    if (!file.file.name.toLowerCase().startsWith(searchText.toLowerCase()))
+      file.isHiden = true;
+    else file.isHiden = false;
+  
+  return { ...state };
+}
 
 let _sortState = (typeSort, state) => {
   switch (typeSort) {
@@ -57,7 +65,7 @@ let _sortBySize = (state) => {
 }
 
 let _addFile = (state, file, path) => {
-  state.currentUser.files.push({ file, path });
+  state.currentUser.files.push({ file, path, isHiden: false });
 
   if (state.searchText === " ")
     state.searchText = "";

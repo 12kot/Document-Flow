@@ -7,13 +7,15 @@ import { Navigate } from "react-router-dom";
 import File from "./Files/File";
 
 const DiskPage = (props) => {
-  if (props.haveError || !props.isLogin)
-    return <Navigate to="/login" />
-  
+  if (props.haveError || !props.isLogin) return <Navigate to="/login" />;
+
   let getFiles = () => {
-    if(props.userFiles.length === 0) return "Файлы отсутствуют"
-    return props.userFiles.map((file) => { return (<File file={file.file} path={file.path} />) })
-  } 
+    if (props.userFiles.length === 0) return "Файлы отсутствуют";
+    return props.userFiles.map((file) => {
+      if (!file.isHiden) return <File file={file.file} path={file.path} />;
+      return <div></div>;
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -37,7 +39,7 @@ const DiskPage = (props) => {
       </div>
 
       <div className={styles.addFile}>
-        <UploadForm addFile={ props.addFile } />
+        <UploadForm addFile={props.addFile} />
       </div>
       <div>
         <h2>Ваши файлы</h2>
