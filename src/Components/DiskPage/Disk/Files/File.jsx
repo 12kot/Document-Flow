@@ -8,7 +8,7 @@ const File = (props) => {
   }
 
   return (<div className={styles.cont}>
-    <a href={props.path} className={styles.container} download>
+    <a href={props.path} className={styles.container} download={props.file.name}>
       <div className={styles.name}>
         <div className={styles.item}>Icon</div>
         <div className={styles.item}>{props.file.name}</div>
