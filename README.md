@@ -1,3 +1,5 @@
-# Я начал полную перепроектировку проекта. Некоторое время коммиты будут возвращать проект к прошлому состоянию.
+# IMPORTANT. NEW REPO https://github.com/12kot/Document-Flow_v2
 
-## I have started a complete redesign of the project. Commits will return the project to its previous state for some time.
+### This repository will no longer be updated. All the following commits will be located here -> https://github.com/12kot/Document-Flow_v2
+
+### Данный репозиторий больше не будет обновляться. Все следующие коммиты будет находиться тут -> https://github.com/12kot/Document-Flow_v2
